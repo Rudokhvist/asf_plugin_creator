@@ -1,4 +1,4 @@
-# ASF plugincreator
+# ASF plugin creator
 This is a simple .bat script to create empty project for ASF plugin, it's only aim is to save few minutes when creating new plugin
 
 If you with to use it - follow those simple steps:
