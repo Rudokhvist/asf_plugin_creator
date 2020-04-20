@@ -16,5 +16,12 @@ If you plan to upload your plugin to github - make sure that plugin_name is the 
 7. Wait until process finished, look out for errors. If everything went smooth your plugin project has to be crated and uploaded to github, now you can open solution in Visual Studio and start creating your plugin.
 
 
+## build.bat
 
+`build.bat` is a script to easily prepare releases for your plugin, both classic and netf. Syntax is:
+
+`build.bat [ASF_version_to_use]`
+
+If started without arguments it will build plugin for latest asf version (please note, this can be a pre-release!). If `ASF_version_to_use` is specified, it will build for this version. 
+Example: `build.bat 4.2.0.1`
 
