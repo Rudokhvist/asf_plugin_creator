@@ -53,6 +53,20 @@ rem search&replace by MC ND, https://stackoverflow.com/questions/23075953
         >>"%textFile%" echo(!line:%search%=%replace%!
         endlocal
     )
+rem one more search&replace
+    setlocal enableextensions disabledelayedexpansion
+
+    set "search=TargetFramework"
+    set "replace=TargetFrameworks"
+
+    set "textFile=%1\%1.csproj"
+
+    for /f "delims=" %%i in ('type "%textFile%" ^& break ^> "%textFile%" ') do (
+        set "line=%%i"
+        setlocal enabledelayedexpansion
+        >>"%textFile%" echo(!line:%search%=%replace%!
+        endlocal
+    )
 rem end of search&replace
 
 git add -A
