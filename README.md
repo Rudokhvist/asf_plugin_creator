@@ -8,7 +8,7 @@ If you with to use it - follow those simple steps:
 3. If you plan to upload your plugin to github - setup your username and email in git with:<br>
 `git config --global user.name "Your github name here"`<br>
 `git config --global user.email "Email you use on github"`<br>
-4. If you plan to upload your plugin to github - make a new repository with the name of your plugin, make sure not **not** include README.me, .gitignore or license
+4. If you plan to upload your plugin to github - make a new repository with the name of your plugin, make sure to **not** include README.me, .gitignore or license
 5. Clone this repo with<br>
 `git clone https://github.com/Ryzhehvost/asf_plugin_creator.git`<br>
 6. Invoke the script with<br>
