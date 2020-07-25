@@ -14,7 +14,7 @@ If you with to use it - follow those simple steps:
 6. Invoke the script with<br>
 `createplugin.bat plugin_name`<br>
 If you plan to upload your plugin to github - make sure that plugin_name is the same as you used for repository in step 4.
-7. Wait until process finished, look out for errors. If everything went smooth your plugin project has to be crated and uploaded to github, now you can open solution in Visual Studio and start creating your plugin.
+7. Wait until process finished, look out for errors. If everything went smooth your plugin project has been created and uploaded to github. You can now open the solution in Visual Studio and start creating your plugin.
 
 
 ## build.bat
