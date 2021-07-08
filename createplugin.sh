@@ -79,12 +79,12 @@ cp ../build.* .
 cp ../.gitignore .
 
 ##
-## THIS would be the replace of 'net5.0' with 'net5.0;net48' + 'TargetFramework' with 'TargetFrameworks',
-## but as ASF seems to be incompatible with net48 now, we leave it disabled.
+## THIS is the replace of 'net5.0' with 'net5.0;net48' & 'TargetFramework' with 'TargetFrameworks'.
+## But as ASF seems to be incompatible with net48 now, we leave it disabled.
 ##
 
-#sed -i 's|net5.0|net5.0;net48|' $plugin/$plugin.csproj
-#sed -i 's|TargetFramework|TargetFrameworks|g' $plugin/$plugin.csproj
+#sed -i 's|net5.0|net5.0;net48|' $plugin_name/$plugin_name.csproj
+#sed -i 's|TargetFramework|TargetFrameworks|g' $plugin_name/$plugin_name.csproj
 
 echo -e "\n## Git add and commit"
 git add -A
