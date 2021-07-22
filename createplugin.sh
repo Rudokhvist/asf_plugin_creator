@@ -78,13 +78,12 @@ echo -e "\n## Copy some files"
 cp ../build.* .
 cp ../.gitignore .
 
-##
-## THIS is the replace of 'net5.0' with 'net5.0;net48' & 'TargetFramework' with 'TargetFrameworks'.
-## But as ASF seems to be incompatible with net48 now, we leave it disabled.
-##
-
+## replace of 'net5.0' with 'net5.0;net48' & 'TargetFramework' with 'TargetFrameworks'.
+## because linux implementation of dotnet is shit and does not works correctly - it's commented by default
+## uncomment section below if you want to target NETF version of ASF anyway (it will include some hacks to workaround dotnet limitations)
 #sed -i 's|net5.0|net5.0;net48|' $plugin_name/$plugin_name.csproj
 #sed -i 's|TargetFramework|TargetFrameworks|g' $plugin_name/$plugin_name.csproj
+#sed -i 's|#build_netf=1|build_netf=1|g' build.sh
 
 echo -e "\n## Git add and commit"
 git add -A
