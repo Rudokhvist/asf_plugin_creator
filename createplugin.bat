@@ -31,7 +31,7 @@ git submodule add https://github.com/JustArchiNET/ArchiSteamFarm.git
 git submodule foreach "git fetch origin; git checkout $(git rev-list --tags --max-count=1);"
 git add -A
 git commit -m "add ASF as submodule"
-dotnet new classlib -f net5.0 -n %1
+dotnet new classlib -f net6.0 -n %1
 dotnet add %1/%1.csproj package System.Composition.AttributedModel -v *
 dotnet add %1/%1.csproj reference ArchiSteamFarm\ArchiSteamFarm\ArchiSteamFarm.csproj
 dotnet new sln -n %1
@@ -42,8 +42,8 @@ copy ..\.gitignore .
 rem search&replace by MC ND, https://stackoverflow.com/questions/23075953
     setlocal enableextensions disabledelayedexpansion
 
-    set "search=net5.0"
-    set "replace=net5.0;net48"
+    set "search=net6.0"
+    set "replace=net6.0;net48"
 
     set "textFile=%1\%1.csproj"
 

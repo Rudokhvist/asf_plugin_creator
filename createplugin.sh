@@ -57,7 +57,7 @@ git add -A
 git commit -m "add ASF as submodule"
 
 echo -e "\n## Dotnet new classlib"
-dotnet new classlib -f net5.0 -n $plugin_name
+dotnet new classlib -f net6.0 -n $plugin_name
 
 echo -e "\n## Dotnet add package"
 dotnet add $plugin_name/$plugin_name.csproj package System.Composition.AttributedModel -v "*"
@@ -78,10 +78,10 @@ echo -e "\n## Copy some files"
 cp ../build.* .
 cp ../.gitignore .
 
-## replace of 'net5.0' with 'net5.0;net48' & 'TargetFramework' with 'TargetFrameworks'.
+## replace of 'net6.0' with 'net6.0;net48' & 'TargetFramework' with 'TargetFrameworks'.
 ## because linux implementation of dotnet is shit and does not works correctly - it's commented by default
 ## uncomment section below if you want to target NETF version of ASF anyway (it will include some hacks to workaround dotnet limitations)
-#sed -i 's|net5.0|net5.0;net48|' $plugin_name/$plugin_name.csproj
+#sed -i 's|net6.0|net6.0;net48|' $plugin_name/$plugin_name.csproj
 #sed -i 's|TargetFramework|TargetFrameworks|g' $plugin_name/$plugin_name.csproj
 #sed -i 's|#build_netf=1|build_netf=1|g' build.sh
 
