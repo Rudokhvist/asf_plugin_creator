@@ -24,6 +24,16 @@ rem release generic version
 dotnet publish -c "Release" -f "net6.0" -o "out/generic" "/p:LinkDuringPublish=false"
 mkdir .\out\%CurrDirName%
 copy .\out\generic\%CurrDirName%.dll .\out\%CurrDirName%
+rem comment section below (downto :zip label) if you don't want to include documentation 
+if not exist README.md (goto zip)
+where /q pandoc.exe
+if ERRORLEVEL 1 (
+  copy README.md .\out\%CurrDirName%
+  goto zip
+) else (
+  pandoc README.md > .\out\%CurrDirName%\README.html
+)
+:zip
 7z a -tzip -mx7 .\out\%CurrDirName%.zip .\out\%CurrDirName%
 rmdir /Q /S out\%CurrDirName%
 
@@ -33,5 +43,15 @@ rem comment section below if you don't target netf ASF version
 dotnet publish -c "Release" -f "net48" -o "out/generic-netf"
 mkdir .\out\%CurrDirName%
 copy .\out\generic-netf\%CurrDirName%.dll .\out\%CurrDirName%
+rem comment section below (downto :zipnetf label) if you don't want to include documentation 
+if not exist README.md (goto zipnetf)
+where /q pandoc.exe
+if ERRORLEVEL 1 (
+  copy README.md .\out\%CurrDirName%
+  goto zipnetf
+) else (
+  pandoc README.md > .\out\%CurrDirName%\README.html
+)
+:zipnetf
 7z a -tzip -mx7 .\out\%CurrDirName%-netf.zip .\out\%CurrDirName%
 rmdir /Q /S out\%CurrDirName%
