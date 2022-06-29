@@ -38,6 +38,7 @@ dotnet new sln -n %1
 dotnet sln add %1
 dotnet sln add ArchiSteamFarm\ArchiSteamFarm\ArchiSteamFarm.csproj --in-root
 copy ..\build.bat .
+copy ..\github-pandoc.css .
 copy ..\.gitignore .
 rem search&replace by MC ND, https://stackoverflow.com/questions/23075953
     setlocal enableextensions disabledelayedexpansion

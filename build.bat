@@ -31,7 +31,7 @@ if ERRORLEVEL 1 (
   copy README.md .\out\%CurrDirName%
   goto zip
 ) else (
-  pandoc README.md > .\out\%CurrDirName%\README.html
+  pandoc  --metadata title="%CurrDirName%" --standalone --columns 2000 -f markdown -t html --self-contained -c .\github-pandoc.css -o .\out\%CurrDirName%\README.html README.md
 )
 :zip
 7z a -tzip -mx7 .\out\%CurrDirName%.zip .\out\%CurrDirName%
@@ -50,7 +50,7 @@ if ERRORLEVEL 1 (
   copy README.md .\out\%CurrDirName%
   goto zipnetf
 ) else (
-  pandoc README.md > .\out\%CurrDirName%\README.html
+  pandoc  --metadata title="%CurrDirName%" --standalone --columns 2000 -f markdown-implicit_figures -t html --self-contained -c .\github-pandoc.css -o .\out\%CurrDirName%\README.html README.md
 )
 :zipnetf
 7z a -tzip -mx7 .\out\%CurrDirName%-netf.zip .\out\%CurrDirName%
