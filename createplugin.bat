@@ -31,7 +31,7 @@ git submodule add https://github.com/JustArchiNET/ArchiSteamFarm.git
 git submodule foreach "git fetch origin; git checkout $(git rev-list --tags --max-count=1);"
 git add -A
 git commit -m "add ASF as submodule"
-dotnet new classlib -f net6.0 -n %1
+dotnet new classlib -f net7.0 -n %1
 dotnet add %1/%1.csproj package System.Composition.AttributedModel -v *
 dotnet add %1/%1.csproj reference ArchiSteamFarm\ArchiSteamFarm\ArchiSteamFarm.csproj
 dotnet new sln -n %1
@@ -40,35 +40,36 @@ dotnet sln add ArchiSteamFarm\ArchiSteamFarm\ArchiSteamFarm.csproj --in-root
 copy ..\build.bat .
 copy ..\github-pandoc.css .
 copy ..\.gitignore .
-rem search&replace by MC ND, https://stackoverflow.com/questions/23075953
-    setlocal enableextensions disabledelayedexpansion
-
-    set "search=net6.0"
-    set "replace=net6.0;net48"
-
-    set "textFile=%1\%1.csproj"
-
-    for /f "delims=" %%i in ('type "%textFile%" ^& break ^> "%textFile%" ') do (
-        set "line=%%i"
-        setlocal enabledelayedexpansion
-        >>"%textFile%" echo(!line:%search%=%replace%!
-        endlocal
-    )
-rem one more search&replace
-    setlocal enableextensions disabledelayedexpansion
-
-    set "search=TargetFramework"
-    set "replace=TargetFrameworks"
-
-    set "textFile=%1\%1.csproj"
-
-    for /f "delims=" %%i in ('type "%textFile%" ^& break ^> "%textFile%" ') do (
-        set "line=%%i"
-        setlocal enabledelayedexpansion
-        >>"%textFile%" echo(!line:%search%=%replace%!
-        endlocal
-    )
-rem end of search&replace
+rem uncomment section below if you plan to target netf variant
+rem rem search&replace by MC ND, https://stackoverflow.com/questions/23075953
+rem     setlocal enableextensions disabledelayedexpansion
+rem 
+rem     set "search=net7.0"
+rem     set "replace=net7.0;net481"
+rem
+rem    set "textFile=%1\%1.csproj"
+rem
+rem    for /f "delims=" %%i in ('type "%textFile%" ^& break ^> "%textFile%" ') do (
+rem        set "line=%%i"
+rem        setlocal enabledelayedexpansion
+rem        >>"%textFile%" echo(!line:%search%=%replace%!
+rem        endlocal
+rem    )
+rem rem one more search&replace
+rem    setlocal enableextensions disabledelayedexpansion
+rem
+rem    set "search=TargetFramework"
+rem    set "replace=TargetFrameworks"
+rem
+rem    set "textFile=%1\%1.csproj"
+rem
+rem    for /f "delims=" %%i in ('type "%textFile%" ^& break ^> "%textFile%" ') do (
+rem        set "line=%%i"
+rem        setlocal enabledelayedexpansion
+rem        >>"%textFile%" echo(!line:%search%=%replace%!
+rem        endlocal
+rem    )
+rem rem end of search&replace
 
 git add -A
 git commit -m "add initial commit"
