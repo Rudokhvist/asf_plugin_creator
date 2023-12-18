@@ -40,36 +40,6 @@ dotnet sln add ArchiSteamFarm\ArchiSteamFarm\ArchiSteamFarm.csproj --in-root
 copy ..\build.bat .
 copy ..\github-pandoc.css .
 copy ..\.gitignore .
-rem uncomment section below if you plan to target netf variant
-rem rem search&replace by MC ND, https://stackoverflow.com/questions/23075953
-rem     setlocal enableextensions disabledelayedexpansion
-rem 
-rem     set "search=net7.0"
-rem     set "replace=net7.0;net481"
-rem
-rem    set "textFile=%1\%1.csproj"
-rem
-rem    for /f "delims=" %%i in ('type "%textFile%" ^& break ^> "%textFile%" ') do (
-rem        set "line=%%i"
-rem        setlocal enabledelayedexpansion
-rem        >>"%textFile%" echo(!line:%search%=%replace%!
-rem        endlocal
-rem    )
-rem rem one more search&replace
-rem    setlocal enableextensions disabledelayedexpansion
-rem
-rem    set "search=TargetFramework"
-rem    set "replace=TargetFrameworks"
-rem
-rem    set "textFile=%1\%1.csproj"
-rem
-rem    for /f "delims=" %%i in ('type "%textFile%" ^& break ^> "%textFile%" ') do (
-rem        set "line=%%i"
-rem        setlocal enabledelayedexpansion
-rem        >>"%textFile%" echo(!line:%search%=%replace%!
-rem        endlocal
-rem    )
-rem rem end of search&replace
 
 git add -A
 git commit -m "add initial commit"
