@@ -1,3 +1,11 @@
+# Discontinued
+
+Please use [ASF-PluginTemplate](https://github.com/JustArchiNET/ASF-PluginTemplate) instead.
+
+
+---
+---
+---
 # ASF plugin creator
 This is a simple .bat script to create empty project for ASF plugin, it's only aim is to save few minutes when creating new plugin.
 It also adds to new plugin project `.gitignore` and convenient script to build plugin releases - `build.bat`
